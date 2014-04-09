@@ -22,11 +22,11 @@
 //
 //------------------------------------------------------------------------------
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #import <CFSockets/CFSocket.h>
 #import <CFSockets/CFStreamPair.h>
 
-@interface ServerTests : SenTestCase<CFSocketDelegate, CFStreamPairDelegate>
+@interface ServerTests : XCTestCase<CFSocketDelegate, CFStreamPairDelegate>
 
 @end

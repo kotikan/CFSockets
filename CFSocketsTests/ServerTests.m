@@ -46,12 +46,12 @@
 	NSError *__autoreleasing error = nil;
 
 	CFSocket *serverSocket = [[CFSocket alloc] initForTCPv6];
-	STAssertNotNil(serverSocket, nil);
-	STAssertTrue([serverSocket setReuseAddressOption:YES], nil);
-	STAssertTrue([serverSocket setAddress:CFSocketAddressDataFromLoopBackIPv6WithPort(54321) error:&error], nil);
-	STAssertNil(error, nil);
-	STAssertEquals([serverSocket addressFamily], AF_INET6, nil);
-	STAssertEquals([serverSocket port], 54321, nil);
+	XCTAssertNotNil(serverSocket);
+	XCTAssertTrue([serverSocket setReuseAddressOption:YES]);
+	XCTAssertTrue([serverSocket setAddress:CFSocketAddressDataFromLoopBackIPv6WithPort(54321) error:&error]);
+	XCTAssertNil(error);
+	XCTAssertEqual([serverSocket addressFamily], AF_INET6);
+	XCTAssertEqual([serverSocket port], 54321);
 
 	// Run the server socket in a run-loop for 10 seconds. Make a connection to
 	// the server using "telnet localhost 54321" at the command line. Enter a
